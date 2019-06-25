@@ -1,0 +1,61 @@
+2019-06-24 20:41:07 WARN  ConnectionUtil:20 - Exception thrown adding oracle driver.
+java.lang.ClassNotFoundException: oracle.jdbc.driver.OracleDriver
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:382)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:424)
+	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:349)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:357)
+	at java.lang.Class.forName0(Native Method)
+	at java.lang.Class.forName(Class.java:264)
+	at com.revature.util.ConnectionUtil.<clinit>(ConnectionUtil.java:18)
+2019-06-24 20:41:07 ERROR ConnectionUtil:38 - Could not connect.
+java.sql.SQLException: No suitable driver found for jdbc:oracle:thin:@database-1.cculpx1yddda.us-east-2.rds.amazonaws.com:1521:ORCL
+	at java.sql.DriverManager.getConnection(DriverManager.java:689)
+	at java.sql.DriverManager.getConnection(DriverManager.java:247)
+	at com.revature.util.ConnectionUtil.getConnection(ConnectionUtil.java:30)
+	at com.revature.util.ConnectionUtil.main(ConnectionUtil.java:35)
+2019-06-24 20:42:07 WARN  ConnectionUtil:20 - Exception thrown adding oracle driver.
+java.lang.ClassNotFoundException: oracle.jdbc.driver.OracleDriver
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:382)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:424)
+	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:349)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:357)
+	at java.lang.Class.forName0(Native Method)
+	at java.lang.Class.forName(Class.java:264)
+	at com.revature.util.ConnectionUtil.<clinit>(ConnectionUtil.java:18)
+2019-06-24 20:42:07 ERROR ConnectionUtil:38 - Could not connect.
+java.sql.SQLException: No suitable driver found for jdbc:oracle:thin:@database-1.cculpx1yddda.us-east-2.rds.amazonaws.com:1521:ORCL
+	at java.sql.DriverManager.getConnection(DriverManager.java:689)
+	at java.sql.DriverManager.getConnection(DriverManager.java:247)
+	at com.revature.util.ConnectionUtil.getConnection(ConnectionUtil.java:30)
+	at com.revature.util.ConnectionUtil.main(ConnectionUtil.java:35)
+2019-06-24 20:46:50 INFO  ConnectionUtil:36 - Connection succesful
+2019-06-24 22:19:47 INFO  ConnectionUtil:36 - Connection succesful
+2019-06-25 00:08:58 TRACE BankRepositoryJdbc:22 - Entering create method with parameter: Bank [account_num=1005, account_balance=0.0, user_name=CARMANDI, soc_sec_num=562183140, password=REVATURE]
+2019-06-25 00:09:00 TRACE BankRepositoryJdbc:52 - Entering find  by Account Number method with parameter: 1003
+2019-06-25 00:09:00 INFO  BankRepositoryJdbc:116 - Bank [account_num=1003, account_balance=0.0, user_name=SAIIM, soc_sec_num=548250490, password=null]
+2019-06-25 00:09:00 TRACE BankRepositoryJdbc:80 - Entering finding all Accounts
+2019-06-25 00:09:01 INFO  BankRepositoryJdbc:120 - Bank [account_num=1001, account_balance=0.0, user_name=ELBIO, soc_sec_num=322148956, password=null]
+2019-06-25 00:09:01 INFO  BankRepositoryJdbc:120 - Bank [account_num=1002, account_balance=0.0, user_name=RAVIT, soc_sec_num=734856721, password=null]
+2019-06-25 00:09:01 INFO  BankRepositoryJdbc:120 - Bank [account_num=1003, account_balance=0.0, user_name=SAIIM, soc_sec_num=548250490, password=null]
+2019-06-25 00:09:01 INFO  BankRepositoryJdbc:120 - Bank [account_num=1004, account_balance=0.0, user_name=MILES, soc_sec_num=542319324, password=null]
+2019-06-25 00:09:01 INFO  BankRepositoryJdbc:120 - Bank [account_num=1005, account_balance=0.0, user_name=CARMANDI, soc_sec_num=562183140, password=REVATURE]
+2019-06-25 00:12:10 TRACE BankRepositoryJdbc:22 - Entering create method with parameter: Bank [account_num=1005, account_balance=0.0, user_name=CARMANDI, soc_sec_num=562183140, password=REVATURE]
+2019-06-25 00:12:11 TRACE BankRepositoryJdbc:52 - Entering find  by Account Number method with parameter: 1003
+2019-06-25 00:12:11 INFO  BankRepositoryJdbc:116 - Bank [account_num=1003, account_balance=0.0, user_name=SAIIM, soc_sec_num=548250490, password=null]
+2019-06-25 00:12:11 TRACE BankRepositoryJdbc:80 - Entering finding all Accounts
+2019-06-25 00:12:12 INFO  BankRepositoryJdbc:120 - Bank [account_num=1001, account_balance=0.0, user_name=ELBIO, soc_sec_num=322148956, password=null]
+2019-06-25 00:12:12 INFO  BankRepositoryJdbc:120 - Bank [account_num=1002, account_balance=0.0, user_name=RAVIT, soc_sec_num=734856721, password=null]
+2019-06-25 00:12:12 INFO  BankRepositoryJdbc:120 - Bank [account_num=1003, account_balance=0.0, user_name=SAIIM, soc_sec_num=548250490, password=null]
+2019-06-25 00:12:12 INFO  BankRepositoryJdbc:120 - Bank [account_num=1004, account_balance=0.0, user_name=MILES, soc_sec_num=542319324, password=null]
+2019-06-25 00:12:12 INFO  BankRepositoryJdbc:120 - Bank [account_num=1005, account_balance=0.0, user_name=CARMANDI, soc_sec_num=562183140, password=REVATURE]
+2019-06-25 00:12:12 INFO  BankRepositoryJdbc:120 - Bank [account_num=1005, account_balance=0.0, user_name=CARMANDI, soc_sec_num=562183140, password=REVATURE]
+2019-06-25 06:13:37 TRACE BankRepositoryJdbc:22 - Entering create method with parameter: Bank [account_num=1006, account_balance=0.0, user_name=JUSTIN, soc_sec_num=534752984, password=JAVA08REVATURE]
+2019-06-25 06:13:39 TRACE BankRepositoryJdbc:52 - Entering find  by Account Number method with parameter: 1003
+2019-06-25 06:13:40 INFO  BankRepositoryJdbc:116 - Bank [account_num=1003, account_balance=0.0, user_name=SAIIM, soc_sec_num=548250490, password=null]
+2019-06-25 06:13:40 TRACE BankRepositoryJdbc:80 - Entering finding all Accounts
+2019-06-25 06:13:40 INFO  BankRepositoryJdbc:120 - Bank [account_num=1001, account_balance=0.0, user_name=ELBIO, soc_sec_num=322148956, password=null]
+2019-06-25 06:13:40 INFO  BankRepositoryJdbc:120 - Bank [account_num=1002, account_balance=0.0, user_name=RAVIT, soc_sec_num=734856721, password=null]
+2019-06-25 06:13:40 INFO  BankRepositoryJdbc:120 - Bank [account_num=1003, account_balance=0.0, user_name=SAIIM, soc_sec_num=548250490, password=null]
+2019-06-25 06:13:40 INFO  BankRepositoryJdbc:120 - Bank [account_num=1004, account_balance=0.0, user_name=MILES, soc_sec_num=542319324, password=null]
+2019-06-25 06:13:40 INFO  BankRepositoryJdbc:120 - Bank [account_num=1005, account_balance=0.0, user_name=CARMANDI, soc_sec_num=562183140, password=REVATURE]
+2019-06-25 06:13:40 INFO  BankRepositoryJdbc:120 - Bank [account_num=1006, account_balance=0.0, user_name=JUSTIN, soc_sec_num=534752984, password=JAVA08REVATURE]
