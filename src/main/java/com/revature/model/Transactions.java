@@ -4,13 +4,13 @@ public class Transactions  implements Comparable<Transactions> {
 
 	private int transac_num;
 	
-	private int account_num;
+	private int transac_acct_num;
 	
-	public Transactions(int transac_num, int account_num, double transac_amount, char transac_type,
+	public Transactions(int transac_num, int transac_acct_num, double transac_amount, char transac_type,
 			String transac_date) {
 		super();
 		this.transac_num = transac_num;
-		this.account_num = account_num;
+		this.transac_acct_num = transac_acct_num;
 		this.transac_amount = transac_amount;
 		this.transac_type = transac_type;
 		this.transac_date = transac_date;
@@ -24,17 +24,11 @@ public class Transactions  implements Comparable<Transactions> {
 	
 	public Transactions() {}
 	
-//	TRANSAC_NUM	NUMBER(16,0)	Yes		TRANSACTION NUMBER	1
-//	TRANSAC_ACCT_NUM	NUMBER(12,0)	Yes		TRANSACTION ACCOUNT NUMBER	2
-//	TRANSAC_AMOUNT	NUMBER(10,2)	Yes		TRANSACTION AMOUNT	3
-//	TRANSAC_TYPE	CHAR(1 BYTE)	Yes		"D" DEPOSIT/"W" WITHDRAWAL	4
-//	TRANSAC_DATE	VARCHAR2(10 BYTE)	Yes		YYYY-MM-DD FORMAT	5
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + account_num;
+		result = prime * result + transac_acct_num;
 		long temp;
 		temp = Double.doubleToLongBits(transac_amount);
 		result = prime * result + (int) (temp ^ (temp >>> 32));
@@ -53,7 +47,7 @@ public class Transactions  implements Comparable<Transactions> {
 		if (getClass() != obj.getClass())
 			return false;
 		Transactions other = (Transactions) obj;
-		if (account_num != other.account_num)
+		if (transac_acct_num != other.transac_acct_num)
 			return false;
 		if (Double.doubleToLongBits(transac_amount) != Double.doubleToLongBits(other.transac_amount))
 			return false;
@@ -71,7 +65,7 @@ public class Transactions  implements Comparable<Transactions> {
 
 	@Override
 	public String toString() {
-		return "Transactions [transac_num=" + transac_num + ", account_num=" + account_num + ", transac_amount="
+		return "Transactions [transac_num=" + transac_num + ", transac_acct_num=" + transac_acct_num + ", transac_amount="
 				+ transac_amount + ", transac_type=" + transac_type + ", transac_date=" + transac_date + "]";
 	}
 
@@ -84,11 +78,11 @@ public class Transactions  implements Comparable<Transactions> {
 	}
 
 	public int getAccount_num() {
-		return account_num;
+		return transac_acct_num;
 	}
 
-	public void setAccount_num(int account_num) {
-		this.account_num = account_num;
+	public void setAccount_num(int transac_acct_num) {
+		this.transac_acct_num = transac_acct_num;
 	}
 
 	public double getTransac_amount() {
@@ -114,7 +108,7 @@ public class Transactions  implements Comparable<Transactions> {
 	public void setTransac_date(String transac_date) {
 		this.transac_date = transac_date;
 	}	
-		
+	
 	@Override
 	public int compareTo(Transactions o) {
 		// TODO Auto-generated method stub

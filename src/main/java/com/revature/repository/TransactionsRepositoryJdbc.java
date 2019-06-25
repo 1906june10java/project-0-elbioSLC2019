@@ -26,11 +26,11 @@ public class TransactionsRepositoryJdbc implements TransactionsRepository {
 
 			PreparedStatement statement = connection.prepareStatement(sql);
 			
-			statement.setInt(++parameterIndex, transactions.getTransac_num());
-			statement.setInt++parameterIndex, transactions.getAccount_num());
-			statement.setString(++parameterIndex, transactions.getTransac_amount());
-			statement.setChar(++parameterIndex, transactions.getTransac_type());
-			statement.setString(++parameterIndex, transactions.getTransac_date());
+			statement.setInt(++parameterIndex, transaction.getTransac_num());
+			statement.setInt++parameterIndex, transaction.getAccount_num());
+			statement.setString(++parameterIndex, transaction.getTransac_amount());
+			statement.setChar(++parameterIndex, transaction.getTransac_type());
+			statement.setString(++parameterIndex, transaction.getTransac_date());
 
 			if (statement.executeUpdate() > 0) {
 				return true;
