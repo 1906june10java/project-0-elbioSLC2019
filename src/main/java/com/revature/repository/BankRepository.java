@@ -16,7 +16,7 @@ import com.revature.model.Bank;
 public interface BankRepository {
 
 	/**
-	 * Will insert a hero into the database table.
+	 * Will insert an account into the database table.
 	 * 
 	 * @param bank
 	 * @return if the record was inserted
@@ -24,7 +24,7 @@ public interface BankRepository {
 	public boolean create(Bank bank);
 	
 	/**
-	 * Will insert a hero into the database table,
+	 * Will insert an account  into the database table,
 	 * but using a stored procedure.
 	 * 
 	 * @param bank

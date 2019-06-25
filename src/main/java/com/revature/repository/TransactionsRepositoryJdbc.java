@@ -18,19 +18,19 @@ public class TransactionsRepositoryJdbc implements TransactionsRepository {
 	private static final Logger LOGGER = Logger.getLogger(TransactionsRepositoryJdbc.class);
 	
 	@Override
-	public boolean create(Transactions transactions) {
-		LOGGER.trace("Entering create method with parameter: " + transactions);
+	public boolean create(Transactions transaction) {
+		LOGGER.trace("Entering create method with parameter: " + transaction);
 		try(Connection connection = ConnectionUtil.getConnection()) {
 			int parameterIndex = 0;
 			String sql = "INSERT INTO TRANSACTIONS VALUES (?, ?, ?, ?, ?)";
 
 			PreparedStatement statement = connection.prepareStatement(sql);
 			
-			statement.setInt(++parameterIndex, bank.getAccount_num());
-			statement.setDouble(++parameterIndex, bank.getAccount_balance());
-			statement.setString(++parameterIndex, bank.getUser_name());
-			statement.setString(++parameterIndex, bank.getSoc_sec_num());
-			statement.setString(++parameterIndex, bank.getPassword());
+			statement.setInt(++parameterIndex, transactions.getTransac_num());
+			statement.setInt++parameterIndex, transactions.getAccount_num());
+			statement.setString(++parameterIndex, transactions.getTransac_amount());
+			statement.setChar(++parameterIndex, transactions.getTransac_type());
+			statement.setString(++parameterIndex, transactions.getTransac_date());
 
 			if (statement.executeUpdate() > 0) {
 				return true;
