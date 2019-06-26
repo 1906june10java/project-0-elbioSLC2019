@@ -105,11 +105,11 @@ public class BankRepositoryJdbc implements BankRepository {
 	public static void main(String[] args) {
 		BankRepository repository = new BankRepositoryJdbc();
 		repository.create(
-				new Bank(1006,
-						0.00,
-						"JUSTIN",
-						"534752984",
-						"JAVA08REVATURE"
+				new Bank(1008,
+						600.00,
+						"YUANN",
+						"123456789",
+						"BOOTCAMP"
 						)
 				);
 		
