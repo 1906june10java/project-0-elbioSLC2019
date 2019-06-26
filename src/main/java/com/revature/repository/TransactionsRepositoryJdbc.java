@@ -9,10 +9,11 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 
-import com.revature.model.Bank;
 import com.revature.model.Transactions;
 
 import com.revature.util.ConnectionUtil;
+
+import oracle.jdbc.OracleResultSet;
 
 public class TransactionsRepositoryJdbc implements TransactionsRepository {
 
@@ -23,134 +24,104 @@ public class TransactionsRepositoryJdbc implements TransactionsRepository {
 		LOGGER.trace("Entering create method with parameter: " + transaction);
 		try(Connection connection = ConnectionUtil.getConnection()) {
 			int parameterIndex = 0;
-			String sql = "INSERT INTO TRANSACTIONS VALUES (?, ?, ?, ?, ?)";
+			String sql = "INSERT INTO TRANSACTIONS VALUES (?, ?, ?, ?, TO_DATE(?, 'MM-DD-YYYY'))";
 
 			PreparedStatement statement = connection.prepareStatement(sql);
-			
+		
 			statement.setInt(++parameterIndex, transaction.getTransac_num());
-			statement.setInt++parameterIndex, transaction.getAccount_num());
-			statement.setString(++parameterIndex, transaction.getTransac_amount());
-			statement.setChar(++parameterIndex, transaction.getTransac_type());
+			statement.setInt(++parameterIndex, transaction.getAccount_num());
+			statement.setDouble(++parameterIndex, transaction.getTransac_amount());
+			statement.setString(++parameterIndex, transaction.getTransac_type());
 			statement.setString(++parameterIndex, transaction.getTransac_date());
 
 			if (statement.executeUpdate() > 0) {
 				return true;
 			}
 		} catch (SQLException e) {
-			LOGGER.error("Could not create bank.", e);
-		}
-		return false;
-	}
-}
-
-public class BankRepositoryJdbc implements BankRepository {
-
-	private static final Logger LOGGER = Logger.getLogger(BankRepositoryJdbc.class);
-
-	@Override
-	public boolean create(Bank bank) {
-		LOGGER.trace("Entering create method with parameter: " + bank);
-		try(Connection connection = ConnectionUtil.getConnection()) {
-			int parameterIndex = 0;
-			String sql = "INSERT INTO BANK VALUES (?, ?, ?, ?, ?)";
-
-			PreparedStatement statement = connection.prepareStatement(sql);
-			
-			statement.setInt(++parameterIndex, bank.getAccount_num());
-			statement.setDouble(++parameterIndex, bank.getAccount_balance());
-			statement.setString(++parameterIndex, bank.getUser_name());
-			statement.setString(++parameterIndex, bank.getSoc_sec_num());
-			statement.setString(++parameterIndex, bank.getPassword());
-
-			if (statement.executeUpdate() > 0) {
-				return true;
-			}
-		} catch (SQLException e) {
-			LOGGER.error("Could not create bank.", e);
+			LOGGER.error("Could not create transaction.", e);
 		}
 		return false;
 	}
 
 	@Override
-	public boolean createSecure(Bank bank) {
+	public boolean createSecure(Transactions transaction) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public Bank findByAccountNum(int account_num) {
-		LOGGER.trace("Entering find  by Account Number method with parameter: " + account_num);
+	public Transactions findByTransac_Num(int transac_num) {
+		LOGGER.trace("Entering find by Account Number method with parameter: " + transac_num);
 		try(Connection connection = ConnectionUtil.getConnection()) {
 			int parameterIndex = 0;
-			String sql = "SELECT * FROM BANK WHERE ACCOUNT_NUM = ?";
+			String sql = "SELECT * FROM TRANSACTIONS WHERE TRANSAC_ACCT_NUM = ?";
 			
 			PreparedStatement statement = connection.prepareStatement(sql);
-			statement.setInt(++parameterIndex, account_num);
+			statement.setInt(++parameterIndex, transac_num);
 			
 			ResultSet result = statement.executeQuery();
 			
 			if(result.next()) {
-				return new Bank (
+				return new Transactions (
 							result.getInt("ACCOUNT_NUM"),						
-							result.getDouble("ACCOUNT_BALANCE"),
-							result.getString("USER_NAME"),
-							result.getString("SOC_SEC_NUM"),
-							result.getString("PASSWORD")
+							result.getInt("TRANSAC_ACCT_NUM"),
+							result.getDouble("TRANSAC_AMOUNT"),
+							result.getString("TRANSAC_TYPE"),
+							result.getString("TRANSAC_DATE")
 							
 						);
 			}
+			
 		} catch (SQLException e) {
-			LOGGER.error("Could not find Account.", e);
+			LOGGER.error("Could not find Transaction.", e);
 		}
 		return null;
 	}
 
 	@Override
-	public List<Bank>findAll() {
+	public List<Transactions>findAll() {
 		LOGGER.trace("Entering finding all Accounts");
 		try(Connection connection = ConnectionUtil.getConnection()) {
 			
-			String sql = "SELECT * FROM BANK ORDER BY ACCOUNT_NUM";
+			String sql = "SELECT * FROM TRANSACTIONS ORDER BY TRANSACT_ACCOUNT_NUM";
 			PreparedStatement statement = connection.prepareStatement(sql);
 			ResultSet result = statement.executeQuery();
 			
-			List<Bank> accounts = new ArrayList<>();
+			List<Transactions> transactions = new ArrayList<>();
 			
 			while(result.next()) {
-				accounts.add(new Bank (
-							result.getInt("ACCOUNT_NUM"),
-							result.getDouble("ACCOUNT_BALANCE"),
-							result.getString("USER_NAME"),
-							result.getString("SOC_SEC_NUM"),
-							result.getString("PASSWORD")
+				transactions.add(new Transactions (
+						
+							result.getInt("ACCOUNT_NUM"),						
+							result.getInt("TRANSAC_ACCT_NUM"),
+							result.getDouble("TRANSAC_AMOUNT"),
+							result.getString("TRANSAC_TYPE"),					
+							result.getString("TRANSAC_DATE")
+
 						));
 			}
-			return accounts;
+			return transactions;
 		} catch (SQLException e) {
 			LOGGER.error("Could not find all Accounts.", e);
 		}
 		return null;
 	}
 
+
 	public static void main(String[] args) {
 		TransactionsRepository repository = new TransactionsRepositoryJdbc();
 		repository.create(
-				new Transactions(1006,
-						0.00,
-						"JUSTIN",
-						"534752984",
-						"JAVA08REVATURE"
-						)
-				);
-		
-//		"Transactions [transac_num=" + transac_num + ", transac_acct_num=" + transac_acct_num + ", transac_amount="
-//		+ transac_amount + ", transac_type=" + transac_type + ", transac_date=" + transac_date + "]";
-		
+				new Transactions(11,
+						        1005,
+						        400.00,
+						        "D",
+						        "2019-06-23"));
+
 		LOGGER.info(repository.findByTransac_Num(5));
 		
 		List<Transactions> transactions = repository.findAll();
 		for(Transactions trans: transactions) {
-			LOGGER.info(transactions);
+			LOGGER.info(trans);
 		}
 	}
 }

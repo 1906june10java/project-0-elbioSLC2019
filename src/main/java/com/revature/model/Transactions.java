@@ -1,12 +1,12 @@
 package com.revature.model;
 
-public class Transactions  implements Comparable<Transactions> {
+public class Transactions implements Comparable<Transactions> {
 
 	private int transac_num;
 	
 	private int transac_acct_num;
 	
-	public Transactions(int transac_num, int transac_acct_num, double transac_amount, char transac_type,
+	public Transactions(int transac_num, int transac_acct_num, double transac_amount, String transac_type,
 			String transac_date) {
 		super();
 		this.transac_num = transac_num;
@@ -18,12 +18,14 @@ public class Transactions  implements Comparable<Transactions> {
 
 	private double transac_amount;
 	
-	private char transac_type;
+	private String transac_type;
 	
 	private String transac_date;
 	
 	public Transactions() {}
 	
+		
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -34,7 +36,7 @@ public class Transactions  implements Comparable<Transactions> {
 		result = prime * result + (int) (temp ^ (temp >>> 32));
 		result = prime * result + ((transac_date == null) ? 0 : transac_date.hashCode());
 		result = prime * result + transac_num;
-		result = prime * result + transac_type;
+		result = prime * result + ((transac_type == null) ? 0 : transac_type.hashCode());
 		return result;
 	}
 
@@ -58,10 +60,15 @@ public class Transactions  implements Comparable<Transactions> {
 			return false;
 		if (transac_num != other.transac_num)
 			return false;
-		if (transac_type != other.transac_type)
+		if (transac_type == null) {
+			if (other.transac_type != null)
+				return false;
+		} else if (!transac_type.equals(other.transac_type))
 			return false;
 		return true;
 	}
+
+
 
 	@Override
 	public String toString() {
@@ -93,11 +100,11 @@ public class Transactions  implements Comparable<Transactions> {
 		this.transac_amount = transac_amount;
 	}
 
-	public char getTransac_type() {
+	public String getTransac_type() {
 		return transac_type;
 	}
 
-	public void setTransac_type(char transac_type) {
+	public void setTransac_type(String transac_type) {
 		this.transac_type = transac_type;
 	}
 
