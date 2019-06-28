@@ -98,3 +98,179 @@ java.sql.SQLException: No suitable driver found for jdbc:oracle:thin:@database-1
 2019-06-26 15:19:50 INFO  BankRepositoryJdbc:120 - Bank [account_num=1008, account_balance=600.0, user_name=JOO AN, soc_sec_num=123456789, password=BOOTCAMP]
 2019-06-26 15:19:50 INFO  BankRepositoryJdbc:120 - Bank [account_num=1009, account_balance=500.0, user_name=MICHAEL, soc_sec_num=432123456, password=VIRGINIA]
 2019-06-26 15:19:50 INFO  BankRepositoryJdbc:120 - Bank [account_num=1010, account_balance=640.0, user_name=WILLIAM, soc_sec_num=987654321, password=JAVA8]
+2019-06-27 10:31:57 TRACE TransactionsRepositoryJdbc:24 - Entering create method with parameter: Transactions [transac_num=12, transac_acct_num=1007, transac_amount=300.0, transac_type=D, transac_date=2019-06-23]
+2019-06-27 10:31:59 ERROR TransactionsRepositoryJdbc:41 - Could not create transaction.
+java.sql.SQLDataException: ORA-01843: not a valid month
+
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:450)
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:399)
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:1017)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:655)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:249)
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:566)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:215)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:58)
+	at oracle.jdbc.driver.T4CPreparedStatement.executeForRows(T4CPreparedStatement.java:943)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1075)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeInternal(OraclePreparedStatement.java:3820)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeUpdate(OraclePreparedStatement.java:3897)
+	at oracle.jdbc.driver.OraclePreparedStatementWrapper.executeUpdate(OraclePreparedStatementWrapper.java:1361)
+	at com.revature.repository.TransactionsRepositoryJdbc.create(TransactionsRepositoryJdbc.java:37)
+	at com.revature.repository.TransactionsRepositoryJdbc.main(TransactionsRepositoryJdbc.java:113)
+2019-06-27 10:31:59 TRACE TransactionsRepositoryJdbc:54 - Entering find by Account Number method with parameter: 5
+2019-06-27 10:31:59 INFO  TransactionsRepositoryJdbc:120 - 
+2019-06-27 10:31:59 TRACE TransactionsRepositoryJdbc:83 - Entering finding all Accounts
+2019-06-27 10:32:00 ERROR TransactionsRepositoryJdbc:105 - Could not find all Accounts.
+java.sql.SQLSyntaxErrorException: ORA-00904: "TRANSACT_ACCOUNT_NUM": invalid identifier
+
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:450)
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:399)
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:1017)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:655)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:249)
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:566)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:215)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:58)
+	at oracle.jdbc.driver.T4CPreparedStatement.executeForDescribe(T4CPreparedStatement.java:776)
+	at oracle.jdbc.driver.OracleStatement.executeMaybeDescribe(OracleStatement.java:897)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1034)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeInternal(OraclePreparedStatement.java:3820)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeQuery(OraclePreparedStatement.java:3867)
+	at oracle.jdbc.driver.OraclePreparedStatementWrapper.executeQuery(OraclePreparedStatementWrapper.java:1502)
+	at com.revature.repository.TransactionsRepositoryJdbc.findAll(TransactionsRepositoryJdbc.java:88)
+	at com.revature.repository.TransactionsRepositoryJdbc.main(TransactionsRepositoryJdbc.java:122)
+2019-06-27 10:41:08 TRACE TransactionsRepositoryJdbc:24 - Entering create method with parameter: Transactions [transac_num=11, transac_acct_num=1007, transac_amount=300.0, transac_type=D, transac_date=2019-06-23]
+2019-06-27 10:41:09 ERROR TransactionsRepositoryJdbc:41 - Could not create transaction.
+java.sql.SQLIntegrityConstraintViolationException: ORA-00001: unique constraint (BANKUSER.PK_TRANSAC_NUM) violated
+
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:450)
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:399)
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:1017)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:655)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:249)
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:566)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:215)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:58)
+	at oracle.jdbc.driver.T4CPreparedStatement.executeForRows(T4CPreparedStatement.java:943)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1075)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeInternal(OraclePreparedStatement.java:3820)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeUpdate(OraclePreparedStatement.java:3897)
+	at oracle.jdbc.driver.OraclePreparedStatementWrapper.executeUpdate(OraclePreparedStatementWrapper.java:1361)
+	at com.revature.repository.TransactionsRepositoryJdbc.create(TransactionsRepositoryJdbc.java:37)
+	at com.revature.repository.TransactionsRepositoryJdbc.main(TransactionsRepositoryJdbc.java:113)
+2019-06-27 10:41:09 TRACE TransactionsRepositoryJdbc:54 - Entering find by Account Number method with parameter: 5
+2019-06-27 10:41:09 INFO  TransactionsRepositoryJdbc:120 - 
+2019-06-27 10:41:09 TRACE TransactionsRepositoryJdbc:83 - Entering finding all Accounts
+2019-06-27 10:41:10 ERROR TransactionsRepositoryJdbc:105 - Could not find all Accounts.
+java.sql.SQLSyntaxErrorException: ORA-00904: "TRANSACT_ACCOUNT_NUM": invalid identifier
+
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:450)
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:399)
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:1017)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:655)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:249)
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:566)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:215)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:58)
+	at oracle.jdbc.driver.T4CPreparedStatement.executeForDescribe(T4CPreparedStatement.java:776)
+	at oracle.jdbc.driver.OracleStatement.executeMaybeDescribe(OracleStatement.java:897)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1034)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeInternal(OraclePreparedStatement.java:3820)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeQuery(OraclePreparedStatement.java:3867)
+	at oracle.jdbc.driver.OraclePreparedStatementWrapper.executeQuery(OraclePreparedStatementWrapper.java:1502)
+	at com.revature.repository.TransactionsRepositoryJdbc.findAll(TransactionsRepositoryJdbc.java:88)
+	at com.revature.repository.TransactionsRepositoryJdbc.main(TransactionsRepositoryJdbc.java:122)
+2019-06-27 15:42:44 TRACE TransactionsRepositoryJdbc:24 - Entering create method with parameter: Transactions [transac_num=12, transac_acct_num=1007, transac_amount=300.0, transac_type=D, transac_date=2019-06-23]
+2019-06-27 15:42:46 TRACE TransactionsRepositoryJdbc:54 - Entering find by Account Number method with parameter: 5
+2019-06-27 15:42:47 INFO  TransactionsRepositoryJdbc:120 - 
+2019-06-27 15:42:47 TRACE TransactionsRepositoryJdbc:83 - Entering finding all Accounts
+2019-06-27 15:42:48 ERROR TransactionsRepositoryJdbc:105 - Could not find all Accounts.
+java.sql.SQLSyntaxErrorException: ORA-00904: "TRANSACT_ACCOUNT_NUM": invalid identifier
+
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:450)
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:399)
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:1017)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:655)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:249)
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:566)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:215)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:58)
+	at oracle.jdbc.driver.T4CPreparedStatement.executeForDescribe(T4CPreparedStatement.java:776)
+	at oracle.jdbc.driver.OracleStatement.executeMaybeDescribe(OracleStatement.java:897)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1034)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeInternal(OraclePreparedStatement.java:3820)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeQuery(OraclePreparedStatement.java:3867)
+	at oracle.jdbc.driver.OraclePreparedStatementWrapper.executeQuery(OraclePreparedStatementWrapper.java:1502)
+	at com.revature.repository.TransactionsRepositoryJdbc.findAll(TransactionsRepositoryJdbc.java:88)
+	at com.revature.repository.TransactionsRepositoryJdbc.main(TransactionsRepositoryJdbc.java:122)
+2019-06-27 15:57:42 TRACE TransactionsRepositoryJdbc:24 - Entering create method with parameter: Transactions [transac_num=12, transac_acct_num=1007, transac_amount=300.0, transac_type=D, transac_date=2019-06-23]
+2019-06-27 15:57:43 ERROR TransactionsRepositoryJdbc:41 - Could not create transaction.
+java.sql.SQLIntegrityConstraintViolationException: ORA-00001: unique constraint (BANKUSER.PK_TRANSAC_NUM) violated
+
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:450)
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:399)
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:1017)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:655)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:249)
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:566)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:215)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:58)
+	at oracle.jdbc.driver.T4CPreparedStatement.executeForRows(T4CPreparedStatement.java:943)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1075)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeInternal(OraclePreparedStatement.java:3820)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeUpdate(OraclePreparedStatement.java:3897)
+	at oracle.jdbc.driver.OraclePreparedStatementWrapper.executeUpdate(OraclePreparedStatementWrapper.java:1361)
+	at com.revature.repository.TransactionsRepositoryJdbc.create(TransactionsRepositoryJdbc.java:37)
+	at com.revature.repository.TransactionsRepositoryJdbc.main(TransactionsRepositoryJdbc.java:113)
+2019-06-27 15:57:43 TRACE TransactionsRepositoryJdbc:83 - Entering finding all Accounts
+2019-06-27 15:57:44 ERROR TransactionsRepositoryJdbc:105 - Could not find all Accounts.
+java.sql.SQLSyntaxErrorException: ORA-00904: "TRANSACT_ACCOUNT_NUM": invalid identifier
+
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:450)
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:399)
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:1017)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:655)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:249)
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:566)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:215)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:58)
+	at oracle.jdbc.driver.T4CPreparedStatement.executeForDescribe(T4CPreparedStatement.java:776)
+	at oracle.jdbc.driver.OracleStatement.executeMaybeDescribe(OracleStatement.java:897)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1034)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeInternal(OraclePreparedStatement.java:3820)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeQuery(OraclePreparedStatement.java:3867)
+	at oracle.jdbc.driver.OraclePreparedStatementWrapper.executeQuery(OraclePreparedStatementWrapper.java:1502)
+	at com.revature.repository.TransactionsRepositoryJdbc.findAll(TransactionsRepositoryJdbc.java:88)
+	at com.revature.repository.TransactionsRepositoryJdbc.main(TransactionsRepositoryJdbc.java:122)
+2019-06-27 16:06:13 TRACE TransactionsRepositoryJdbc:24 - Entering create method with parameter: Transactions [transac_num=13, transac_acct_num=1001, transac_amount=350.0, transac_type=D, transac_date=2019-06-26]
+2019-06-27 23:24:58 TRACE BankRepositoryJdbc:52 - Entering find by Account Number method with parameter: 1007
+2019-06-27 23:25:00 INFO  BankRepositoryJdbc:117 - Bank [account_num=1007, account_balance=500.0, user_name=PETER_A, soc_sec_num=986739425, password=1234]
+2019-06-27 23:25:00 TRACE BankRepositoryJdbc:81 - Entering finding all Accounts
+2019-06-27 23:25:00 INFO  BankRepositoryJdbc:121 - Bank [account_num=1001, account_balance=850.0, user_name=ELBIO, soc_sec_num=322148956, password=SALTLAKECITY]
+2019-06-27 23:25:00 INFO  BankRepositoryJdbc:121 - Bank [account_num=1002, account_balance=900.0, user_name=RABEET, soc_sec_num=734856721, password=MARYLAND]
+2019-06-27 23:25:00 INFO  BankRepositoryJdbc:121 - Bank [account_num=1003, account_balance=730.0, user_name=SAAIM, soc_sec_num=548250490, password=BANGLADESH]
+2019-06-27 23:25:00 INFO  BankRepositoryJdbc:121 - Bank [account_num=1004, account_balance=1000.0, user_name=MILES, soc_sec_num=542319324, password=RITCHMOND]
+2019-06-27 23:25:00 INFO  BankRepositoryJdbc:121 - Bank [account_num=1005, account_balance=750.0, user_name=CARMANDI, soc_sec_num=562183140, password=REVATURE]
+2019-06-27 23:25:00 INFO  BankRepositoryJdbc:121 - Bank [account_num=1006, account_balance=800.0, user_name=JUSTIN, soc_sec_num=534752984, password=JAVA08REVATURE]
+2019-06-27 23:25:00 INFO  BankRepositoryJdbc:121 - Bank [account_num=1007, account_balance=500.0, user_name=PETER_A, soc_sec_num=986739425, password=1234]
+2019-06-27 23:25:00 INFO  BankRepositoryJdbc:121 - Bank [account_num=1008, account_balance=600.0, user_name=JOO AN, soc_sec_num=123456789, password=BOOTCAMP]
+2019-06-27 23:25:00 INFO  BankRepositoryJdbc:121 - Bank [account_num=1009, account_balance=500.0, user_name=MICHAEL, soc_sec_num=432123456, password=VIRGINIA]
+2019-06-27 23:25:00 INFO  BankRepositoryJdbc:121 - Bank [account_num=1010, account_balance=640.0, user_name=WILLIAM, soc_sec_num=987654321, password=JAVA8]
+2019-06-28 00:31:32 TRACE BankRepositoryJdbc:52 - Entering find by Account Number method with parameter: 1007
+2019-06-28 00:38:15 TRACE BankRepositoryJdbc:52 - Entering find by Account Number method with parameter: 1007
+2019-06-28 00:46:24 TRACE BankRepositoryJdbc:52 - Entering find by Account Number method with parameter: 1007
+2019-06-28 01:04:38 TRACE BankRepositoryJdbc:52 - Entering find by Account Number method with parameter: 1007
+2019-06-28 01:06:52 TRACE BankRepositoryJdbc:52 - Entering find by Account Number method with parameter: 1007
+2019-06-28 01:10:33 TRACE BankRepositoryJdbc:52 - Entering find by Account Number method with parameter: 1007
+2019-06-28 01:30:51 TRACE BankRepositoryJdbc:52 - Entering find by Account Number method with parameter: 1007
+2019-06-28 02:05:04 TRACE BankRepositoryJdbc:52 - Entering find by Account Number method with parameter: 1007
+2019-06-28 02:07:52 TRACE BankRepositoryJdbc:52 - Entering find by Account Number method with parameter: 1007
+2019-06-28 02:16:19 TRACE BankRepositoryJdbc:52 - Entering find by Account Number method with parameter: 1007
+2019-06-28 09:03:42 TRACE BankRepositoryJdbc:52 - Entering find by Account Number method with parameter: 1007
+2019-06-28 09:27:05 TRACE BankRepositoryJdbc:52 - Entering find by Account Number method with parameter: 1007
+2019-06-28 09:32:08 TRACE BankRepositoryJdbc:52 - Entering find by Account Number method with parameter: 1003
+2019-06-28 09:49:24 TRACE BankRepositoryJdbc:52 - Entering find by Account Number method with parameter: 1003
+2019-06-28 09:50:52 TRACE BankRepositoryJdbc:52 - Entering find by Account Number method with parameter: 1003
+2019-06-28 09:52:58 TRACE BankRepositoryJdbc:52 - Entering find by Account Number method with parameter: 1003
+2019-06-28 09:58:18 TRACE BankRepositoryJdbc:52 - Entering find by Account Number method with parameter: 1008
+2019-06-28 16:56:22 TRACE BankRepositoryJdbc:52 - Entering find by Account Number method with parameter: 1001

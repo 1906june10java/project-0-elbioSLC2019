@@ -24,7 +24,7 @@ public class TransactionsRepositoryJdbc implements TransactionsRepository {
 		LOGGER.trace("Entering create method with parameter: " + transaction);
 		try(Connection connection = ConnectionUtil.getConnection()) {
 			int parameterIndex = 0;
-			String sql = "INSERT INTO TRANSACTIONS VALUES (?, ?, ?, ?, TO_DATE(?, 'MM-DD-YYYY'))";
+			String sql = "INSERT INTO TRANSACTIONS VALUES (?, ?, ?, ?, ?)";
 
 			PreparedStatement statement = connection.prepareStatement(sql);
 		
@@ -111,20 +111,19 @@ public class TransactionsRepositoryJdbc implements TransactionsRepository {
 	public static void main(String[] args) {
 		TransactionsRepository repository = new TransactionsRepositoryJdbc();
 		repository.create(
-				new Transactions(11,
-						        1005,
-						        400.00,
+				new Transactions(13,
+						        1001,
+						        350.00,
 						        "D",
-						        "2019-06-23"));
+						        "2019-06-26"));
 
-		LOGGER.info(repository.findByTransac_Num(5));
+		//LOGGER.info(repository.findByTransac_Num(8));
 		
-		List<Transactions> transactions = repository.findAll();
-		for(Transactions trans: transactions) {
-			LOGGER.info(trans);
+		//List<Transactions> transactions = repository.findAll();
+		//for(Transactions trans: transactions) {
+		//	LOGGER.info(trans);
 		}
 	}
-}
 
 
 

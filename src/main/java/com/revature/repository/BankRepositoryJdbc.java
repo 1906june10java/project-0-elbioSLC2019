@@ -49,7 +49,7 @@ public class BankRepositoryJdbc implements BankRepository {
 
 	@Override
 	public Bank findByAccountNum(int account_num) {
-		LOGGER.trace("Entering find  by Account Number method with parameter: " + account_num);
+		LOGGER.trace("Entering find by Account Number method with parameter: " + account_num);
 		try(Connection connection = ConnectionUtil.getConnection()) {
 			int parameterIndex = 0;
 			String sql = "SELECT * FROM BANK WHERE ACCOUNT_NUM = ?";
@@ -74,7 +74,8 @@ public class BankRepositoryJdbc implements BankRepository {
 		}
 		return null;
 	}
-
+	
+	
 	@Override
 	public List<Bank>findAll() {
 		LOGGER.trace("Entering finding all Accounts");
@@ -104,20 +105,20 @@ public class BankRepositoryJdbc implements BankRepository {
 
 	public static void main(String[] args) {
 		BankRepository repository = new BankRepositoryJdbc();
-		repository.create(
-				new Bank(1010,
-						640.00,
-						"WILLIAM",
-						"987654321",
-						"JAVA8"
-						)
-				);
+//		repository.create(
+//				new Bank(1010,
+//						640.00,
+//						"WILLIAM",
+//						"987654321",
+//						"JAVA8"
+//						)
+//				);
 		
-		LOGGER.info(repository.findByAccountNum(1003));
-		
-		List<Bank> accounts = repository.findAll();
-		for(Bank bank: accounts) {
-			LOGGER.info(bank);
+		LOGGER.info(repository.findByAccountNum(1007));
+		//LOGGER.info(repository.findBySocial(1003));
+//		List<Bank> accounts = repository.findAll();
+//		for(Bank bank: accounts) {
+//			LOGGER.info(bank);
 		}
 	}
-}
+

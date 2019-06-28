@@ -9,7 +9,7 @@ public class BankController {
 		System.out.println("Please input something: ");
 		String userInput = scanner.nextLine();
 		System.out.println("User input: " + userInput);
-		
+	
 		Integer i = Integer.parseInt(userInput);
 		System.out.println(i);
 	}
